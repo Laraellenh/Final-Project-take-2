@@ -7,11 +7,13 @@ import { Route, Switch } from "react-router-dom";
 import Auth from './Components/Auth'
 import Login from './Components/Login'
 import Home from './Components/Home'
+import FavoriteList from './Components/FavoriteList';
 // import Booklist from './Components/Booklist';
 
 function App() {
   const [user, setUser] =useState(null);
   const history = useHistory()
+  const [favesArray, setFavesArray] = useState()
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -40,29 +42,25 @@ function App() {
     });
   }
 
-  //  array of titles that need to be .entries
     const [titles, setTitles] = useState([])
-    const [favesArray, setFavesArray] = useState([])
-  
-    // fetch BookList, add them to state
+ 
+  //  const totalLikedArray=[...favesArray, ]
+    
     useEffect(()=>{
         fetch('/books')
         .then(r=>r.json())
         .then(data=>{
           
           const titlesArray = data.entries
-          // array of all the books from API
-          // console.log(titlesArray)
+  
           setTitles(titlesArray)
          
         })
       
       }, [])
-  //  function addFavoriteToList(bookObj){
-  //    setFavesArray(...favesArray, title)
 
-  //  }
-      console.log(titles)
+    
+
   return (
     <>
    
@@ -79,7 +77,8 @@ function App() {
     <Route exact path="/login">
           <Login onLogin={handleLogin}  />
     </Route>
-    <Route exact path="/"> <Home titles={titles} user={user} setFavesArray={setFavesArray} handleLogOutClick={handleLogOutClick} /></Route>
+    <Route exact path='/mylist'> <FavoriteList favesArray={favesArray} /> </Route>
+    <Route exact path="/"> <Home favesArray={favesArray} setFavesArray=  {setFavesArray} titles={titles} user={user}  handleLogOutClick={handleLogOutClick} /></Route>
     </Switch>
    
    </>

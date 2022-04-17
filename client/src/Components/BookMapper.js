@@ -1,24 +1,24 @@
-import React, {useState} from 'react'
-import Booklist from './Booklist'
+// import React, {useState} from 'react'
+// // import Booklist from './Booklist'
 
-function BookMapper({title}) {
+// function BookMapper({title}) {
 
-    // console.log(title)
-    // const bookComponentArray = title.entries
-    // console.log(bookComponentArray)
-    // const [loadedBookArray, setLoadedBooksArray] = useState ([])
+//     // console.log(title)
+//     // const bookComponentArray = title.entries
+//     // console.log(bookComponentArray)
+//     // const [loadedBookArray, setLoadedBooksArray] = useState ([])
     
-        // if (bookComponentArray.length >=0) {
-        //     const bookObj = bookComponentArray.map(b=><Booklist  loadedBookArray={{loadedBookArray}} key = {b.id} b={b} />) }
-        //   }  else {
-        //      return 
-        //     //   let the objects load, then 
-        //   }
+//         // if (bookComponentArray.length >=0) {
+//         //     const bookObj = bookComponentArray.map(b=><Booklist  loadedBookArray={{loadedBookArray}} key = {b.id} b={b} />) }
+//         //   }  else {
+//         //      return 
+//         //     //   let the objects load, then 
+//         //   }
 
-  return (
-    <div> </div>
+//   return (
+//     <div> </div>
     
-  )
-}
+//   )
+// }
 
-export default BookMapper
+// export default BookMapper

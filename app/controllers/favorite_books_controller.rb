@@ -1,5 +1,5 @@
 class FavoriteBooksController < ApplicationController
-  
+  wrap_parameters = []
     def create
 
         book= Book.find_by(title: params[:title])
@@ -12,15 +12,18 @@ class FavoriteBooksController < ApplicationController
         if !favebook
             return render json: FavoriteBook.create(user_id: session[:user_id], book_id: book.id)
         end
+            # render json: favebook[0]
             render json: favebook[0]
     end
     def show 
         render json: FavoriteBook.find_by(id: params[:id])
     end
-    # def index
-    #     # FavoriteBook.all.where(user_id: session[:user_id])
-    #     FavoriteBook.all
-    # end
+    def index
+       
+        
+       return render json: FavoriteBook.all.where(user_id: session[:user_id])
+        
+    end
     private
     def fave_params
         params.permit(:book_id, :user_id, :book)

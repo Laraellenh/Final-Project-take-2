@@ -1,7 +1,10 @@
 
 import React, {useState} from 'react'
-import Book from './Book'
-function Booklist({ setFavesArray, b}) {
+import FavoriteList from './FavoriteList'
+
+function Booklist({setFavesArray, b, favesArray}) {
+
+  const [faveTitle, setFaveTitle] = useState({})
   // console.log(b)
 // fave titles set to state, and added to the array from App
   // const [faveTitle, setFaveTitle] = useState([])
@@ -15,7 +18,8 @@ function Booklist({ setFavesArray, b}) {
   // // const bookArray = bookObj.map(book=>{console.log(book)})
  
   function handleClick(b){
-  //  console.log("list", b)
+    
+   console.log("adding book to faves", b)
     fetch('/favorite_books', {
       method: 'POST', 
       headers: {
@@ -25,23 +29,30 @@ function Booklist({ setFavesArray, b}) {
        
     })
     .then(r=>r.json())
-    .then(data=>{
+    .then(newTitle=>{
+      // console.log("favetitle", faveTitle)
+      // console.log(newTitle)
+      setFavesArray(favesArray=>[ newTitle, ...favesArray])
       
-      setFavesArray(data)
-      console.log("array of data", [data])
     })
-}
+    
+  }
+
+
+
   return (
     <div>
        <h4>
         {b.title}
        
             <button 
-            // onClick={()=>handleClick(b)}
+            onClick={()=>handleClick(b)}
             >
                 Add to Your Favorites List
             </button>
+            
         </h4>
+       
     </div>
   )
 }
