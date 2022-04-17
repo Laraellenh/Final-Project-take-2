@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useHistory } from "react-router-dom";
 import {useEffect, useState} from 'react'
@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import Auth from './Components/Auth'
 import Login from './Components/Login'
 import Home from './Components/Home'
+// import Booklist from './Components/Booklist';
 
 function App() {
   const [user, setUser] =useState(null);
@@ -37,10 +38,40 @@ function App() {
         history.push("/login");
       }
     });
-    
   }
+
+  //  array of titles that need to be .entries
+    const [titles, setTitles] = useState([])
+    const [favesArray, setFavesArray] = useState([])
+  
+    // fetch BookList, add them to state
+    useEffect(()=>{
+        fetch('/books')
+        .then(r=>r.json())
+        .then(data=>{
+          
+          const titlesArray = data.entries
+          // array of all the books from API
+          // console.log(titlesArray)
+          setTitles(titlesArray)
+         
+        })
+      
+      }, [])
+  //  function addFavoriteToList(bookObj){
+  //    setFavesArray(...favesArray, title)
+
+  //  }
+      console.log(titles)
   return (
-    
+    <>
+   
+   <div style={{ 
+      backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-ksTgjSWk-8FxS2FYw_FCrmir26sfWbgCg&usqp=CAU")` 
+    }}>
+     
+    </div>
+  
    <Switch>  
     <Route exact path="/signup">
           <Auth/>
@@ -48,9 +79,10 @@ function App() {
     <Route exact path="/login">
           <Login onLogin={handleLogin}  />
     </Route>
-    <Route exact path="/"> <Home user={user} handleLogOutClick={handleLogOutClick} /></Route>
+    <Route exact path="/"> <Home titles={titles} user={user} setFavesArray={setFavesArray} handleLogOutClick={handleLogOutClick} /></Route>
     </Switch>
    
+   </>
   );
 }
 

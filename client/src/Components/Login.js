@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 export default function Login({onLogin}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState([])
 
     function handleSubmit(e){
         e.preventDefault()
@@ -44,7 +43,7 @@ export default function Login({onLogin}) {
        
         <input type="submit" value="Login!" />
       </form>
-      {error?<div>{error}</div>:null}
+
      <h3> Need to sign up? </h3>
      <Link to= './signup' > Click to sign up</Link>
         </>

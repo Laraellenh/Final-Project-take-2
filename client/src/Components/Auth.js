@@ -8,36 +8,33 @@ function Auth() {
     const handleUsername = (e) => setUsername(e.target.value)
     const handleEmail = (e) => setEmail(e.target.value)
     const handlePassword = (e) => setPassword(e.target.value)
-    const [errors, setErrors] = useState([])
+    
 
     const nav = useHistory()
     const handleSubmit = (e) => {
       e.preventDefault();
     
       const newUser = { username, email, password}
-        // setEmail("")
-        // setPassword("")
-        // setUsername("")
-     if (newUser.username !== "") {
-        if (newUser.password.length >= 5 && newUser.password.length <= 10) {
-        fetch(`/signup`, {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newUser),
-                }).then((r) => r.json());
-                alert("User Created Successfully");
-                nav("/login");
-            } else {
-                alert(
-                "Your must be between 5 and 10 characters"
-                );
-            }
-            } else {
-            alert("Please enter a username");
-            }
-        }
+      if (newUser.username !== "") {
+          if (newUser.password.length >= 5 && newUser.password.length <= 10) {
+          fetch(`/signup`, {
+              method: "POST",
+              headers: {
+              "Content-Type": "application/json",
+              },
+              body: JSON.stringify(newUser),
+                  }).then((r) => r.json());
+                  alert("User Created Successfully");
+                  nav.push("/login");
+              } else {
+                  alert(
+                  "Your must be between 5 and 10 characters"
+                  );
+              }
+              } else {
+              alert("Please enter a username");
+              }
+          }
 
   
     return (
@@ -64,7 +61,7 @@ function Auth() {
        
         <input type="submit" value="Sign up!" />
       </form>
-      {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+      
         </>
     )
 }

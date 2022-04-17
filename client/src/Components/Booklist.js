@@ -1,8 +1,48 @@
-import React from 'react'
 
-function Booklist() {
+import React, {useState} from 'react'
+import Book from './Book'
+function Booklist({ setFavesArray, b}) {
+  // console.log(b)
+// fave titles set to state, and added to the array from App
+  // const [faveTitle, setFaveTitle] = useState([])
+  // console.log( "faveTitle", faveTitle)
+  // const entryObj = title.entries 
+  // console.log(titles)
+  // const allTitlesInStateArray = titles.map(b=>{ return (<Book key={b.id} b={b}/>)})
+  // const [bookArray] = title.map((b)=>key={)
+  // const bookObj=title.entries
+  // console.log(bookObj)
+  // // const bookArray = bookObj.map(book=>{console.log(book)})
+ 
+  function handleClick(b){
+  //  console.log("list", b)
+    fetch('/favorite_books', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+        body: JSON.stringify(b)
+       
+    })
+    .then(r=>r.json())
+    .then(data=>{
+      
+      setFavesArray(data)
+      console.log("array of data", [data])
+    })
+}
   return (
-    <div>Booklist</div>
+    <div>
+       <h4>
+        {b.title}
+       
+            <button 
+            // onClick={()=>handleClick(b)}
+            >
+                Add to Your Favorites List
+            </button>
+        </h4>
+    </div>
   )
 }
 

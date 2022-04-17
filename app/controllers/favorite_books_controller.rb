@@ -17,10 +17,10 @@ class FavoriteBooksController < ApplicationController
     def show 
         render json: FavoriteBook.find_by(id: params[:id])
     end
-    def index
-        # FavoriteBook.all.where(user_id: session[:user_id])
-        FavoriteBook.all
-    end
+    # def index
+    #     # FavoriteBook.all.where(user_id: session[:user_id])
+    #     FavoriteBook.all
+    # end
     private
     def fave_params
         params.permit(:book_id, :user_id, :book)
@@ -32,7 +32,7 @@ class FavoriteBooksController < ApplicationController
         params.reject!(:covers, :key, :authors, :type, :description, :latest_revision, :revision, :created, :last_modified)
     end
     def book_params
-        params.permit(:title, :author)
+        params.permit(:title, :author, :description)
     end
    
 
