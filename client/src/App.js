@@ -53,32 +53,19 @@ function App() {
         .then(data=>{
           
           const titlesArray = data.entries
-  
-          setTitles(titlesArray)
+          console.log(data.entries)
+          setTitles(data.entries)
          
         })
       
       }, [])
-      const [favorites, setFavorites] = useState([])
-     
-      console.log(favorites)
-     const potato = favorites.map(f=> <Favorite  key={f.id} f={f} /> )
-     
-      useEffect(()=>{
-        fetch('/favorite_books')
-        .then(r=>r.json())
-         .then(data=> {
-            setFavorites([data, ...favorites])
-            
-         })
 
-      }, [])
 
      
   return (
     <>
    
-   {potato} 
+   
    <div 
    style={{ 
       backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-ksTgjSWk-8FxS2FYw_FCrmir26sfWbgCg&usqp=CAU")` 
@@ -93,8 +80,8 @@ function App() {
     <Route exact path="/login">
           <Login onLogin={handleLogin}  />
     </Route>
-     {/* {favorites ? <FavoriteList favorites={favorites} /> : null} */}
-    <Route exact path='/mylist'> <FavoriteList favorites={favorites} potato={potato} /> </Route>
+  
+    <Route exact path='/mylist'> <FavoriteList  /> </Route>
     <Route exact path="/"> <Home setFavesArray={setFavesArray} favesArray={favesArray} titles={titles} user={user}  handleLogOutClick={handleLogOutClick} /></Route>
     </Switch>
    

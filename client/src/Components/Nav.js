@@ -10,8 +10,9 @@ function Nav({ handleLogOutClick, user}) {
          <h1>Nerd Out Book List </h1>
          <div>
             <button onClick={handleLogOutClick}>Logout</button>
+           <Link to ='/mylist' >  <button >See Your Reading List</button> </Link>
            {/* <h1><Link to="/"> Home</Link></h1> */}
-           {user&&user.admin?<h1><Link to="/" >Return Home</Link></h1>:null}
+           {/* {user&&user.admin?<h1><Link to="/" >Return Home</Link> </h1>:null} */}
 
          </div>
 

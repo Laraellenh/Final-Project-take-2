@@ -17,7 +17,7 @@ function Home({handleLogOutClick, addFavoriteToList, titles, favesList, setFaves
 
 
   return (
-    <div>Home
+    <div>
     <Nav handleLogOutClick={handleLogOutClick} />
     {/* <BookMapper  /> */}
     {/* <BookList titles={titles} /> */}
