@@ -1,24 +1,21 @@
 import React from 'react'
-import {useEffect, useState} from 'react'
+import Favorite from './Favorite'
 
-function FavoriteList() {
-  const [favorites, setFavorites] = useState([])
+function FavoriteList({potato, favorites}) {
+ 
+console.log(favorites[0])
+// a nested array
 
-  // const fave = favesArray.map(faveItem=> faveItem) 
+  if (favorites[0]) {
+    favorites[0].map(f=>  { 
+     return (<Favorite f={f.book.title} key={f.id} />)})}
+    
+
+    
   
-  useEffect(()=>{
-    fetch('/favorite_books')
-    .then(r=>r.json())
-     .then(data=>setFavorites(data))
-  }, [])
-  // console.log(favorites)
-  const fave = favorites.map(f=>  { 
-    console.log(f.book.title)
-     return  (<h4 key={f.id}> {f.book.title} </h4>)})
-  // console.log(fave)
   return (
     <div >
-         {fave}
+      
     </div>
       
       

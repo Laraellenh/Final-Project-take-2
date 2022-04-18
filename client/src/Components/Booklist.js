@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import FavoriteList from './FavoriteList'
 
-function Booklist({setFavesArray, b, favesArray}) {
+function Booklist({setFavesArray, b, favesArray, favesList, setFavesList}) {
 
   const [faveTitle, setFaveTitle] = useState({})
   // console.log(b)
@@ -33,6 +33,7 @@ function Booklist({setFavesArray, b, favesArray}) {
       // console.log("favetitle", faveTitle)
       // console.log(newTitle)
       setFavesArray(favesArray=>[ newTitle, ...favesArray])
+      setFaveTitle(faveTitle)
       
     })
     

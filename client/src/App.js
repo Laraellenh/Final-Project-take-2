@@ -3,9 +3,9 @@ import './App.css';
 import { useHistory } from "react-router-dom";
 import {useEffect, useState} from 'react'
 import { Route, Switch } from "react-router-dom";
-// App - setUser in state
 import Auth from './Components/Auth'
 import Login from './Components/Login'
+import Favorite from './Components/Favorite'
 import Home from './Components/Home'
 import FavoriteList from './Components/FavoriteList';
 // import Booklist from './Components/Booklist';
@@ -13,7 +13,8 @@ import FavoriteList from './Components/FavoriteList';
 function App() {
   const [user, setUser] =useState(null);
   const history = useHistory()
-  const [favesArray, setFavesArray] = useState()
+  const [favesArray, setFavesArray] = useState([])
+  // const [favesList, setFavesList] = useState([])
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -44,7 +45,7 @@ function App() {
 
     const [titles, setTitles] = useState([])
  
-  //  const totalLikedArray=[...favesArray, ]
+
     
     useEffect(()=>{
         fetch('/books')
@@ -58,13 +59,28 @@ function App() {
         })
       
       }, [])
+      const [favorites, setFavorites] = useState([])
+     
+      console.log(favorites)
+     const potato = favorites.map(f=> <Favorite  key={f.id} f={f} /> )
+     
+      useEffect(()=>{
+        fetch('/favorite_books')
+        .then(r=>r.json())
+         .then(data=> {
+            setFavorites([data, ...favorites])
+            
+         })
 
-    
+      }, [])
 
+     
   return (
     <>
    
-   <div style={{ 
+   {potato} 
+   <div 
+   style={{ 
       backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-ksTgjSWk-8FxS2FYw_FCrmir26sfWbgCg&usqp=CAU")` 
     }}>
      
@@ -77,8 +93,9 @@ function App() {
     <Route exact path="/login">
           <Login onLogin={handleLogin}  />
     </Route>
-    <Route exact path='/mylist'> <FavoriteList favesArray={favesArray} /> </Route>
-    <Route exact path="/"> <Home favesArray={favesArray} setFavesArray=  {setFavesArray} titles={titles} user={user}  handleLogOutClick={handleLogOutClick} /></Route>
+     {/* {favorites ? <FavoriteList favorites={favorites} /> : null} */}
+    <Route exact path='/mylist'> <FavoriteList favorites={favorites} potato={potato} /> </Route>
+    <Route exact path="/"> <Home setFavesArray={setFavesArray} favesArray={favesArray} titles={titles} user={user}  handleLogOutClick={handleLogOutClick} /></Route>
     </Switch>
    
    </>
