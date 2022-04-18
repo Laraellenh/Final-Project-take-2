@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
+import Fave from './Fave'
 
 
 function Favorite({f}) {
@@ -11,13 +12,13 @@ function Favorite({f}) {
   console.log(f)
   const l = f.map(singleBookObj=>{
     const obj= singleBookObj.book.title
-   return ( <ul >{obj}  <button onClick={handleMarkAsRead}> {read ? "Mark as read" : "Mark as unread"}
-   </button>{} </ul>
+   return ( <Fave obj={obj} >{obj}   </Fave>
     )
   })
    
   return (
-    <div> Your Favorites {l}
+    <div> Your Favorites
+         {l}
      
       
     
