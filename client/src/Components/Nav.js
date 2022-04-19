@@ -7,12 +7,13 @@ function Nav({ handleLogOutClick, user}) {
     return (
         <> 
    
-         <h1>Nerd Out Book List </h1>
+         <h1> Welcome to Your Kurt Vonnegut Reading Planner </h1>
+         <h2> Click on the titles you've read or want to read to keep a master list</h2>
          <div>
-            <button onClick={handleLogOutClick}>Logout</button>
-           <Link to ='/mylist' >  <button >See Your Reading List</button> </Link>
-           {/* <h1><Link to="/"> Home</Link></h1> */}
-           {/* {user&&user.admin?<h1><Link to="/" >Return Home</Link> </h1>:null} */}
+            <button onClick={handleLogOutClick}> Logout </button>
+           <Link to ='/mylist' >  <button > See Your Reading List</button> </Link>
+           <Link to ='/' > <button > Head Home </button> </Link>
+        
 
          </div>
 
