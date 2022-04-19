@@ -1,6 +1,6 @@
 This project has a React.js front end and Ruby on Rails backend.
 I query the Public Library API to grab book titles by Kurt Vonnegut to organize which books I have read so far.
-As a big reader, I thought it could be fun to start with an author who I have read a ignificant percentage of the body or works. It could be expanded to search for other authrs and also list their works. It is very basic at this time to allow for unexpected family responsibilities to allow me to graduate on time.
+As a big reader, I thought it could be fun to start with an author who I have read a significant percentage of the body or works. It could be expanded to search for other authrs and also list their works. It is very basic at this time to allow for unexpected family responsibilities to allow me to graduate on time.
 
 In the future I would love to add more authors, the images for the books covers, and more features for users. 
 
