@@ -24,6 +24,10 @@ class FavoriteBooksController < ApplicationController
        return render json: FavoriteBook.all.where(user_id: session[:user_id])
         
     end
+    def destroy
+        return render json: FavoriteBook.all.where(user_id: session[:user_id]).delete
+    end
+
     private
     def fave_params
         params.permit(:book_id, :user_id, :book)
