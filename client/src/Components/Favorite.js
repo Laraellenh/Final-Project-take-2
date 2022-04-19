@@ -22,7 +22,9 @@ function Favorite({f, handleDeleteItem}) {
   return (
     <div> 
         
-        <ul className='favelist'>{f.book.title} <button onClick={handleMarkAsRead}> {read ?  "Mark as read" : "Mark as unread"} </button> 
+        <ul className='favelist'>
+          {f.book.title} 
+        <button onClick={handleMarkAsRead}> {read ?  "Mark as read" : "Mark as unread"} </button> 
         {/* <button  className="remove" onClick={handleDeleteItem}> Delete title</button> */}
         </ul>
       
