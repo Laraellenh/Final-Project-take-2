@@ -52,7 +52,8 @@ function Favorite({f, handleDeleteItem, setFavorites, favorites}) {
          >
           {f.book.title} 
         <button onClick={handleMarkAsRead}> {read ?  "Mark as read" : "Mark as unread"} </button> 
-        <h3>{f.note} </h3> 
+        <h1> </h1>
+        <h3> {f.note} </h3> 
         {/* <textarea rows={3} onChange={handleChange}> "leave your thoughts on this title" </textarea> */}
         {/* <button > </button>  */}
         <FaveNote 

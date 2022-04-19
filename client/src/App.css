@@ -5,6 +5,7 @@
 .parent {
   display: flex;
   height: 300px; 
+  flex: center
 }
 
 .child {
@@ -132,8 +133,7 @@ h3{
  font-size: medium;
  justify-content: center;
  
-}
-p{
+}span{
   margin-left: 5%;
   color: hotpink;
  font-size: large;
@@ -157,6 +157,7 @@ button{
   
 }
 input{
+  color: blue;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 ul{
@@ -165,5 +166,6 @@ ul{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 textarea{
-  font-size: xx-small;
+  font-size: small;
+  color: hotpink;
 }
