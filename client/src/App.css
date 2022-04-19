@@ -133,6 +133,13 @@ h3{
  justify-content: center;
  
 }
+p{
+  margin-left: 5%;
+  color: hotpink;
+ font-size: large;
+ justify-content: space-evenly
+}
+
 h1{
   color: lightblue;
   font-weight: bold;
@@ -156,4 +163,7 @@ ul{
   color: blue;
   font-weight: bold;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+textarea{
+  font-size: xx-small;
 }

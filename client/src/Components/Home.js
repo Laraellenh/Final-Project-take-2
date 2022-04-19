@@ -8,13 +8,8 @@ function Home({handleLogOutClick, addFavoriteToList, titles, favesList, setFaves
   //  console.log(titles)
   // once titles.length >0
       const bookComponentArray =  titles?.map(b=> <BookList setFavesList={setFavesList} favesList={favesList} setFavesArray={setFavesArray} addFavoriteToList={addFavoriteToList} key={b.id}  b={b}/>)
-     
-      // const favesArray= [...title, newArray]
-
-  // const fave = favesArray.map(faveItem=> faveItem) 
+   
   
-  
-
 
   return (
     <div>

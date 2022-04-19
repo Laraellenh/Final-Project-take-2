@@ -10,33 +10,17 @@ function FavoriteList() {
     fetch('/favorite_books')
     .then(r=>r.json())
      .then(data=> {
-        setFavorites(...favorites, data)
+        setFavorites(data, ...favorites)
        console.log(data)
-       
+    
      })
 
   }, [])
  
-
-  
-  // function handleDeleteItem(deletedItem) {
-  //   const updatedFaves = favorites.filter((f)=> f.id !==deletedItem.id)
-  //   setFavorites(updatedFaves)
-  //  }
-// function handleDeleteFave(){
-      //   fetch('/favorite_books', {
-      //     method: 'DELETE',
-      //     headers: {
-      //       'Content-type': 'application/json'
-      //   }
-      //   .then((r) => r.json())
-      //   .then(() => handleDeleteItem(f))
-      //   })
-      // }
 let t= favorites?.map(f=>  { 
     
-       console.log(f)
-       return (<Favorite
+      //  console.log(f)
+       return (<Favorite setFavorites={setFavorites}
         //  handleDeleteItem={handleDeleteItem} handleDeleteFave={handleDeleteFave} 
         favorites={favorites} f={f} key={f.id} />)
     }
@@ -46,7 +30,8 @@ let t= favorites?.map(f=>  {
   return (
     <div >
       <Nav></Nav>
-     {t}
+      <h3> your titles</h3>
+        {t}
     </div>
       
       

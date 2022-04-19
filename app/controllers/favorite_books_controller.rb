@@ -26,8 +26,12 @@ class FavoriteBooksController < ApplicationController
     def destroy
         return render json: FavoriteBook.all.where(user_id: session[:user_id]).delete
     end
-    def add_note
-        return render json: FavoriteBook.find_by(user_id: session[:user_id).create!(note_params), status: :created
+    def update
+   
+       book = FavoriteBook.find_by({user_id: session[:user_id], book_id: params[:id] })
+       book.update!(note: params[:note])
+    
+       render json: book, status: :ok
     end
 
     private
@@ -44,7 +48,7 @@ class FavoriteBooksController < ApplicationController
         params.permit(:title, :author, :description)
     end
     def note_params
-        params.permit(:note, :book_id)
+        params.permit(:note)
     end
 
    

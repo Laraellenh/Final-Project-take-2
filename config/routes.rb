@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   resources :users
-  resources :favorite_books, only: [:create, :show, :index, :add_note]
+  resources :favorite_books, only: [:create, :show, :index, :update]
+  # patch '/updated_fave', to: "favorite_books#add_note"
   # resources :authors
   # resources :books
   post "/login", to: "sessions#login"

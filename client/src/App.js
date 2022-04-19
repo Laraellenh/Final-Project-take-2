@@ -5,7 +5,6 @@ import {useEffect, useState} from 'react'
 import { Route, Switch } from "react-router-dom";
 import Auth from './Components/Auth'
 import Login from './Components/Login'
-import Favorite from './Components/Favorite'
 import Home from './Components/Home'
 import FavoriteList from './Components/FavoriteList';
 // import Booklist from './Components/Booklist';
