@@ -1,30 +1,27 @@
 import React from 'react'
 import {useState} from 'react'
+import Fave from './Fave'
 
 
-
-
-function Favorite({f, handleDeleteItem}) {
-    // function handleDeleteFave(deletedItem) {
-    //     const updatedItems = favorites.filter((deletedItem) => f.id !== deletedItem.id);
-    //     setFavorites(updatedItems);
-    //   }
-    
-     
+function Favorite({f}) {
   const [read, setMarkasRead] = useState(true)
   function handleMarkAsRead(){
 
     setMarkasRead((read)=>!read)
- }
-
+  }
   console.log(f)
  
+//   if (f){
+//    f[0].map(singleBookObj=>{
+//     const obj= singleBookObj.book.title
+//    return ( <Fave obj={obj} >{obj}   </Fave>
+//     )
+//   })}
+   
   return (
     <div> 
-        
-        <ul className='favelist'>{f.book.title} <button onClick={handleMarkAsRead}> {read ?  "Mark as read" : "Mark as unread"} </button> 
-        {/* <button  className="remove" onClick={handleDeleteItem}> Delete title</button> */}
-        </ul>
+         
+        <ul>{f.book.title} <button onClick={handleMarkAsRead}> {read ? "Mark as read" : "Mark as unread"} </button></ul>
       
     
   </div>
