@@ -16,8 +16,7 @@ function FavoriteList() {
      })
 
   }, [])
-  
-
+ 
 
   
   // function handleDeleteItem(deletedItem) {
