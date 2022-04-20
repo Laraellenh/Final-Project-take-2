@@ -24,17 +24,20 @@ function Auth({user, setUser}) {
               },
               body: JSON.stringify(newUser),
                   }).then((r) => r.json());
-                  alert("User Created Successfully");
+                  console.log(newUser)
                   setUser(user)
+                  console.log(user)
                   nav.push("/");
               } else {
                   alert(
                   "Your must be between 5 and 10 characters"
                   );
               }
-              } else {
-              alert("Please enter a username");
-              }
+              } 
+              else {
+                alert("username is taken, choose again");
+                }
+              
           }
 
   

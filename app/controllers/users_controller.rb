@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     def create
     
         render json: User.create!(user_params), status: :created
+    # else
+    #     render json: "Username is already taken, choose another", status: :unprocessable_entity
     end
     def show
         user = User.find_by(id: session[:user_id])
