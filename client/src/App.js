@@ -64,11 +64,11 @@ function App() {
       if (!user) return(
         <Switch>
           <Route exact path= '/'>
-        <Login  handleLogin={handleLogin}  />;
+        <Login user={user} setUser={setUser} handleLogin={handleLogin}  />;
         </Route>
     
    
-       <Route exact path="/signup"> <Auth/> </Route>
+       <Route exact path="/signup"> <Auth user={user} setUser={setUser} h/> </Route>
        </Switch>
         )
   //     }

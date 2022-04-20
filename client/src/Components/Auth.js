@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 
-function Auth() {
+function Auth({user, setUser}) {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -25,6 +25,7 @@ function Auth() {
               body: JSON.stringify(newUser),
                   }).then((r) => r.json());
                   alert("User Created Successfully");
+                  setUser(user)
                   nav.push("/");
               } else {
                   alert(
