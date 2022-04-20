@@ -7,6 +7,7 @@ import FaveNote from './FaveNote'
 
 function Favorite({f, handleDeleteItem, setFavorites, favorites}) {
    console.log(f)
+   console.log(favorites)
     const [note, setNote] = useState([])
 
     function handleChange(e){

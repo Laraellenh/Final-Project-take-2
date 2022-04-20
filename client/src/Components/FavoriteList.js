@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Favorite from './Favorite'
 import Nav from './Nav'
 
-function FavoriteList() {
+function FavoriteList({handleLogOutClick}) {
 
   const [favorites, setFavorites] = useState([])
    
@@ -10,8 +10,8 @@ function FavoriteList() {
     fetch('/favorite_books')
     .then(r=>r.json())
      .then(data=> {
-        setFavorites(data, ...favorites)
-       console.log(data)
+        setFavorites((favorites)=>data, ...favorites)
+       console.log(favorites)
     
      })
 
@@ -29,7 +29,7 @@ let t= favorites?.map(f=>  {
     
   return (
     <div >
-      <Nav></Nav>
+      <Nav handleLogOutClick={handleLogOutClick}></Nav>
       <h3> your titles</h3>
         {t}
     </div>

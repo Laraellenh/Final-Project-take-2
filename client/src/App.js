@@ -60,28 +60,32 @@ function App() {
       }, [])
 
 
+      if (!user) return(
+        <Switch>
+          <Route exact path= '/login'>
+        <Login error={'please login'} handleLogin={handleLogin}  />;
+        </Route>
+    
+   
+       <Route exact path="/signup"> <Auth/> </Route>
+       </Switch>
+        )
+  //     }
+    
+  //     console.log(user)
      
   return (
     <>
-   
-   
-   <div 
-   style={{ 
-      backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-ksTgjSWk-8FxS2FYw_FCrmir26sfWbgCg&usqp=CAU")` 
-    }}>
-     
-    </div>
   
    <Switch>  
-    <Route exact path="/signup">
-          <Auth/>
-    </Route>
-    <Route exact path="/login">
-          <Login onLogin={handleLogin}  />
-    </Route>
   
-    <Route exact path='/mylist'> <FavoriteList  /> </Route>
-    <Route exact path="/"> <Home setFavesArray={setFavesArray} favesArray={favesArray} titles={titles} user={user}  handleLogOutClick={handleLogOutClick} /></Route>
+          
+    {/* <Route  path="/login">
+          <Login setUser={setUSer} />
+    </Route>  */}
+    <Route exact path="/"> <Home  titles={titles} user={user}  handleLogOutClick={handleLogOutClick} /></Route>
+    <Route path='/mylist'> <FavoriteList handleLogOutClick={handleLogOutClick}   /> </Route>
+   
     </Switch>
    
    </>
