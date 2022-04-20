@@ -5,10 +5,10 @@ import FaveNote from './FaveNote'
 
 
 
-function Favorite({f, handleDeleteItem, setFavorites, favorites}) {
+function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites}) {
    console.log(f)
    console.log(favorites)
-    const [note, setNote] = useState([])
+  
 
     function handleChange(e){
      setNote(e.target.value)
@@ -16,12 +16,12 @@ function Favorite({f, handleDeleteItem, setFavorites, favorites}) {
     
    function handleNote(e){
     e.preventDefault()
-  
+    
     const formInput = {
         note: note,
         book: f.book
     }
-  
+    
       // setFavorites(formInput,...favorites)
       fetch(`/favorite_books/${f.book.id}`, {
         method: 'PATCH', 
@@ -31,10 +31,12 @@ function Favorite({f, handleDeleteItem, setFavorites, favorites}) {
           body: JSON.stringify(formInput)
          
       })
+   
       .then(r=>r.json())
-      .then(data=>{
-        console.log(data)
+      .then(note=>{
+        console.log(note)
         setNote(note)
+        
        
       })
     }

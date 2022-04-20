@@ -5,7 +5,7 @@ import Nav from './Nav'
 function FavoriteList({handleLogOutClick}) {
 
   const [favorites, setFavorites] = useState([])
-   
+  const [note, setNote] = useState([])
   useEffect(()=>{
     fetch('/favorite_books')
     .then(r=>r.json())
@@ -15,12 +15,12 @@ function FavoriteList({handleLogOutClick}) {
     
      })
 
-  }, [])
+  }, [note])
  
 let t= favorites?.map(f=>  { 
     
       //  console.log(f)
-       return (<Favorite setFavorites={setFavorites}
+       return (<Favorite setFavorites={setFavorites} note={note} setNote={setNote}
         //  handleDeleteItem={handleDeleteItem} handleDeleteFave={handleDeleteFave} 
         favorites={favorites} f={f} key={f.id} />)
     }
