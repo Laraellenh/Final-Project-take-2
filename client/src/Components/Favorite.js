@@ -23,6 +23,7 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
     }
     
       // setFavorites(formInput,...favorites)
+      setNote("")
       fetch(`/favorite_books/${f.book.id}`, {
         method: 'PATCH', 
         headers: {

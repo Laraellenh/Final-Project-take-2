@@ -6,14 +6,14 @@ class FavoriteBooksController < ApplicationController
     
         if !book
             newBook = Book.create!(title: params[:title], author_id: 1  )
-           return render json: FavoriteBook.create(user_id: session[:user_id], book_id: newBook.id)
+           return render json: FavoriteBook.create!(user_id: session[:user_id], book_id: newBook.id)
         end
-        favebook = FavoriteBook.all.where({user_id: session[:user_id], book_id: book.id})
+        favebook = FavoriteBook.find_by({user_id: session[:user_id], book_id: book.id})
         if !favebook
-            return render json: FavoriteBook.create(user_id: session[:user_id], book_id: book.id)
+            return render json: FavoriteBook.create!(user_id: session[:user_id], book_id: book.id)
         end
             # render json: favebook[0]
-            render json: favebook[0]
+            render json: favebook
     end
     def show 
         render json: FavoriteBook.find_by(id: params[:id])
