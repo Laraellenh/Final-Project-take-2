@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # patch '/updated_fave', to: "favorite_books#add_note"
   # resources :authors
   # resources :books
+
   post "/login", to: "sessions#login"
   get '/me', to: "users#show"
   delete '/logout', to: 'sessions#destroy'

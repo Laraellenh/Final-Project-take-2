@@ -25,7 +25,7 @@ function Auth() {
               body: JSON.stringify(newUser),
                   }).then((r) => r.json());
                   alert("User Created Successfully");
-                  nav.push("/login");
+                  nav.push("/");
               } else {
                   alert(
                   "Your must be between 5 and 10 characters"

@@ -12,7 +12,7 @@ function Nav({ handleLogOutClick, user}) {
          <div>
             <button onClick={handleLogOutClick}> Logout </button>
            <Link to ='/mylist' >  <button > See Your Reading List</button> </Link>
-           <Link to ='/' > <button > Head Home </button> </Link>
+           <Link to ='/home' > <button > Head Home </button> </Link>
         
 
          </div>

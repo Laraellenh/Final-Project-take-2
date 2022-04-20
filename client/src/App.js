@@ -25,7 +25,7 @@ function App() {
   function handleLogin(user) {
     
     setUser(user);
-    history.push("/")
+    history.push("/home")
     
   }
 
@@ -37,7 +37,7 @@ function App() {
     }).then((r) => {
       if (r.ok) {
         setUser(null);
-        history.push("/login");
+        history.push("/");
       }
     });
   }
@@ -57,13 +57,14 @@ function App() {
          
         })
       
-      }, [])
+      }, [user])
+    
 
 
       if (!user) return(
         <Switch>
-          <Route exact path= '/login'>
-        <Login error={'please login'} handleLogin={handleLogin}  />;
+          <Route exact path= '/'>
+        <Login  handleLogin={handleLogin}  />;
         </Route>
     
    
@@ -83,7 +84,7 @@ function App() {
     {/* <Route  path="/login">
           <Login setUser={setUSer} />
     </Route>  */}
-    <Route exact path="/"> <Home  titles={titles} user={user}  handleLogOutClick={handleLogOutClick} /></Route>
+    <Route exact path="/home"> <Home  titles={titles} user={user}  handleLogOutClick={handleLogOutClick} favesArray={favesArray} setFavesArray={setFavesArray} /></Route>
     <Route path='/mylist'> <FavoriteList handleLogOutClick={handleLogOutClick}   /> </Route>
    
     </Switch>

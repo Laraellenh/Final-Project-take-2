@@ -4,7 +4,7 @@ import FavoriteList from './FavoriteList'
 
 function Booklist({setFavesArray, b, favesArray, favesList, setFavesList}) {
 
-  const [faveTitle, setFaveTitle] = useState({})
+  // const [faveTitle, setFaveTitle] = useState({})
   // console.log(b)
 // fave titles set to state, and added to the array from App
   // const [faveTitle, setFaveTitle] = useState([])
@@ -33,7 +33,7 @@ function Booklist({setFavesArray, b, favesArray, favesList, setFavesList}) {
       // console.log("favetitle", faveTitle)
       // console.log(newTitle)
       setFavesArray(favesArray=>[ newTitle, ...favesArray])
-      setFaveTitle(faveTitle)
+      // setFaveTitle(faveTitle)
       
     })
     
