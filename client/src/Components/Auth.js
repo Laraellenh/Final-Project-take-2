@@ -15,8 +15,8 @@ function Auth({user, setUser}) {
       e.preventDefault();
     
       const newUser = { username, email, password}
-      if (newUser.username !== "") {
-          if (newUser.password.length >= 5 && newUser.password.length <= 10) {
+    //   if (newUser.username !== "") {
+    //       if (newUser.password.length >= 5 && newUser.password.length <= 10) {
           fetch(`/signup`, {
               method: "POST",
               headers: {
@@ -26,19 +26,25 @@ function Auth({user, setUser}) {
                   }).then((r) => r.json());
                   console.log(newUser)
                   setUser(user)
+                  if(!user){
+                      alert(
+                          "username is taken, please try again")
+                      nav.push("/signin");
+                  }
                   console.log(user)
                   nav.push("/");
-              } else {
-                  alert(
-                  "Your must be between 5 and 10 characters"
-                  );
-              }
-              } 
-              else {
-                alert("username is taken, choose again");
                 }
+            //   } else {
+            //       alert(
+            //       "Your must be between 5 and 10 characters"
+            //       );
+            //   }
+            //   } 
+            //   else {
+            //     alert("username is taken, choose again");
+            //     }
               
-          }
+        //   }
 
   
     return (
