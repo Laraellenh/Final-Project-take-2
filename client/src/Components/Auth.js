@@ -26,13 +26,13 @@ function Auth({user, setUser}) {
                   }).then((r) => r.json());
                   console.log(newUser)
                   setUser(user)
-                  if(!user){
-                      alert(
-                          "username is taken, please try again")
-                      nav.push("/signin");
-                  }
+                  // if(!user){
+                  //     alert(
+                  //         "username is taken, please try again")
+                  //     nav.push("/signin");
+                  // }
                   console.log(user)
-                  nav.push("/");
+                  nav.push("/home");
                 }
             //   } else {
             //       alert(
