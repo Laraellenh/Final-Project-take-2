@@ -47,6 +47,7 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
  
   function handleMarkAsRead(){
     setMarkasRead((read)=>!read)
+   
   }
 
  
@@ -56,10 +57,14 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
         <p
          className='favelist'
          >
-          {f.book.title} 
-        <button onClick={handleMarkAsRead}> {read ? "Mark as read" : "Mark as unread"} </button> 
+          Book title: {f.book.title} 
+        <button onClick={handleMarkAsRead}> {
+        read ? "Mark as read" : "Mark as unread"} </button> 
         <h1> </h1>
-        <h3> {f.note} </h3> 
+        <h3 style={{borderColor: "#f7d6b5",
+              fontFamily: 'bangers',
+              fontSize: '20px',
+              color: 'hotpink'}}> Your notes on this title: {f.note} </h3> 
         {/* <textarea rows={3} onChange={handleChange}> "leave your thoughts on this title" </textarea> */}
         {/* <button > </button>  */}
         {/* <FaveNote 
@@ -71,10 +76,16 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
           
           type="submit"
             onSubmit={handleNote}  >
-            <textarea rows={6} 
+            <textarea 
             
+            rows={6} 
+            style={{borderColor: "#f7d6b5",
+            fontFamily: 'bangers',
+            maxWidth: '900px',
+            fontSize: '20px',
+            color: '#f27279'}}
             onChange={handleChange}
-              placeholder=" your note about this title" 
+              placeholder=" type your note about this title" 
           
               />
               <button > submit your note</button> 

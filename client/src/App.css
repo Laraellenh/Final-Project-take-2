@@ -175,3 +175,7 @@ textarea{
 .nav{
   margin-left: 5%;
 }
+p{
+  column-count: 2;
+  column-width: 45%;
+}
