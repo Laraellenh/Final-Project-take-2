@@ -64,7 +64,15 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
         <h3 style={{borderColor: "#f7d6b5",
               fontFamily: 'bangers',
               fontSize: '20px',
-              color: 'hotpink'}}> Your notes on this title: {f.note} </h3> 
+              display: "block",
+              color: 'hotpink'}}> Your notes on this title: </h3> 
+              <h3 style={{
+                
+              fontFamily: 'bangers',
+              fontSize: '16px',
+              display: "block",
+              fontStyle: "italic",
+              color: '#61dafb'}}> {f.note}</h3>
         {/* <textarea rows={3} onChange={handleChange}> "leave your thoughts on this title" </textarea> */}
         {/* <button > </button>  */}
         {/* <FaveNote 
@@ -78,10 +86,12 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
             onSubmit={handleNote}  >
             <textarea 
             
-            rows={6} 
-            style={{borderColor: "#f7d6b5",
+            rows={5} 
+            style={{
+            display: 'block',
+            borderColor: "#f7d6b5",
             fontFamily: 'bangers',
-            maxWidth: '900px',
+            width: '500px',
             fontSize: '20px',
             color: '#f27279'}}
             onChange={handleChange}

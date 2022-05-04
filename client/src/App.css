@@ -79,11 +79,19 @@
 
 }
 .favelist{
+box-sizing: border-box;
+  border-bottom: 4px;
+  border-color: blue;
   flex-wrap: space-evenly;
-
-  /* column-width: 45%; */
+  column-width: 45%;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: medium;
+  display: block;
+  grid-auto-rows: max-content;
+}
+.img{
+  margin-left: 5%;
+  
 }
 .home{
   margin-left: 10%;

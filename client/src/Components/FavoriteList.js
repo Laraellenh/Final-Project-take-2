@@ -30,8 +30,15 @@ let t= favorites?.map(f=>  {
   return (
     <div >
       <Nav handleLogOutClick={handleLogOutClick}></Nav>
+      <br></br>
+      <img 
+    
+    className='img'
+     src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwjer9Nltcrw87qm94jEt-jPqiVGVxirr6nA&usqp=CAU' alt="Vonnegut image"
+     />
       <h3 className='nav'> Your Reading List </h3>
         {t}
+        <br></br>
     </div>
       
       

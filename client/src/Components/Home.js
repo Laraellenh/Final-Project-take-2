@@ -14,6 +14,12 @@ function Home({handleLogOutClick, addFavoriteToList, titles, favesList, setFaves
   return (
     <div>
     <Nav handleLogOutClick={handleLogOutClick} />
+    <br></br>
+    <img 
+    
+    className='img'
+     src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMy4PkmP0PKx96lB4hiy__M8hH7itaHRIwiQ&usqp=CAU' alt="Vonnegut image"
+     />
     {/* <BookMapper  /> */}
     {/* <BookList titles={titles} /> */}
     {/* <FavoriteList   /> */}
