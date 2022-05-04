@@ -30,7 +30,7 @@ let t= favorites?.map(f=>  {
   return (
     <div >
       <Nav handleLogOutClick={handleLogOutClick}></Nav>
-      <h3> your titles</h3>
+      <h3 className='nav'> Your Reading List </h3>
         {t}
     </div>
       

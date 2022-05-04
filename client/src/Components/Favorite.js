@@ -21,25 +21,27 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
         note: note,
         book: f.book
     }
+ 
+ 
     
       // setFavorites(formInput,...favorites)
-      setNote("")
+    
       fetch(`/favorite_books/${f.book.id}`, {
         method: 'PATCH', 
         headers: {
           'Content-Type': 'application/json',
         },
           body: JSON.stringify(formInput)
-         
+           
       })
-   
+  
       .then(r=>r.json())
       .then(note=>{
         console.log(note)
         setNote(note)
-        
        
       })
+  e.target.reset()
     }
   const [read, setMarkasRead] = useState(true)
  
@@ -49,22 +51,34 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
 
  
   return (
-    <div> 
+    <div className='nav'> 
         
         <p
-        //  className='favelist'
+         className='favelist'
          >
           {f.book.title} 
-        <button onClick={handleMarkAsRead}> {read ?  "Mark as read" : "Mark as unread"} </button> 
+        <button onClick={handleMarkAsRead}> {read ? "Mark as read" : "Mark as unread"} </button> 
         <h1> </h1>
         <h3> {f.note} </h3> 
         {/* <textarea rows={3} onChange={handleChange}> "leave your thoughts on this title" </textarea> */}
         {/* <button > </button>  */}
-        <FaveNote 
+        {/* <FaveNote 
         // setFavorites={setFavorites} 
         // note={note} 
-         handleChange={handleChange} handleNote={handleNote}></FaveNote>
-        {/* <button  className="remove" onClick={handleDeleteItem}> Delete title</button> */}
+         handleChange={handleChange} note={note} handleNote={handleNote}></FaveNote>
+        <button  className="remove" onClick={handleDeleteItem}> Delete title</button> */}
+        <form 
+          
+          type="submit"
+            onSubmit={handleNote}  >
+            <textarea rows={6} 
+            
+            onChange={handleChange}
+              placeholder=" your note about this title" 
+          
+              />
+              <button > submit your note</button> 
+          </form>
         </p>
       
     
