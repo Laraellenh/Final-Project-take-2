@@ -2,30 +2,23 @@ import React from 'react'
 import {useState} from 'react'
 import FaveNote from './FaveNote'
 
-
-
-
 function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites}) {
    console.log(f)
    console.log(favorites)
   
-
-    function handleChange(e){
+  function handleChange(e){
      setNote(e.target.value)
     }
     
    function handleNote(e){
     e.preventDefault()
     
-    const formInput = {
+   const formInput = {
         note: note,
         book: f.book
     }
  
  
-    
-      // setFavorites(formInput,...favorites)
-    
       fetch(`/favorite_books/${f.book.id}`, {
         method: 'PATCH', 
         headers: {
@@ -73,13 +66,7 @@ function Favorite({f, note, setNote, handleDeleteItem, setFavorites, favorites})
               display: "block",
               fontStyle: "italic",
               color: '#61dafb'}}> {f.note}</h3>
-        {/* <textarea rows={3} onChange={handleChange}> "leave your thoughts on this title" </textarea> */}
-        {/* <button > </button>  */}
-        {/* <FaveNote 
-        // setFavorites={setFavorites} 
-        // note={note} 
-         handleChange={handleChange} note={note} handleNote={handleNote}></FaveNote>
-        <button  className="remove" onClick={handleDeleteItem}> Delete title</button> */}
+ 
         <form 
           
           type="submit"
