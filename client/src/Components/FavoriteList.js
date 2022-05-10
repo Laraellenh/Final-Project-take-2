@@ -19,14 +19,11 @@ function FavoriteList({handleLogOutClick}) {
  
 let t= favorites?.map(f=>  { 
     
-      //  console.log(f)
-       return (<Favorite setFavorites={setFavorites} note={note} setNote={setNote}
-        //  handleDeleteItem={handleDeleteItem} handleDeleteFave={handleDeleteFave} 
-        favorites={favorites} f={f} key={f.id} />)
+     return (<Favorite setFavorites={setFavorites} note={note} setNote={setNote}
+       
+     favorites={favorites} f={f} key={f.id} />)
     }
     )
-  
-    
   return (
     <div >
       <Nav handleLogOutClick={handleLogOutClick}></Nav>
@@ -41,8 +38,6 @@ let t= favorites?.map(f=>  {
         <br></br>
     </div>
       
-      
-    
   )
 }
 
